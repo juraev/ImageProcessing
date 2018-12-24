@@ -24,7 +24,7 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(ui->openButton, SIGNAL(clicked()), this, SLOT(on_actionOpen_triggered()));
     connect(ui->saveButton, SIGNAL(clicked()), this, SLOT(on_actionSave_as_triggered()));
     connect(ui->closeButton, SIGNAL(clicked()), this, SLOT(on_actionClose_triggered()));
-    //connect(ui->lastButton, SIGNAL(clicked()), this, SLOT(lastBtnClicked()));
+    connect(ui->computeButton, SIGNAL(clicked()), this, SLOT(on_actionComputeMoments_triggered()));
 }
 
 MainWindow::~MainWindow()
@@ -307,9 +307,10 @@ void MainWindow::on_actionTo_W_B_triggered(){
 
 void MainWindow::on_actionComputeMoments_triggered(){
     double* a = image->getHusMoments();
-    QFile file("/home/jack/img_view/moments.txt");
+    QFile file("moments.txt");
     if ( file.open(QIODevice::ReadWrite) )
     {
+        std::clog << "file opened\n";
         QTextStream stream( &file );
         for (int i = 1; i < 8; i ++)
             stream << a[i] << endl;
