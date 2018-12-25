@@ -19,8 +19,6 @@
 #undef Bool
 #define uchar unsigned char
 
-using namespace cimg_library;
-
 namespace Ui {
 class MainWindow;
 }

@@ -48,12 +48,14 @@ public:
         QPainter* painter = new QPainter(&pixmap);
         QPen pen = QPen();
         cimg_forXY(img, x, y){
-            pen.setColor(QColor((int)img(x, y, 0, 0), (int)img(x, y, 0, 1), (int)img(x, y, 0, 2)));
+            pen.setColor(QColor(img(x, y, 0, 0), img(x, y, 0, 1), img(x, y, 0, 2)));
             painter->setPen(pen);
             painter->drawPoint(x, y);
         }
         QFile file(path);
         info = new QFileInfo(file.fileName());
+
+        alr = 0.33, alb = 0.33, alg = 0.34;
     }
 
     ~Image(){

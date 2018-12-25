@@ -111,8 +111,8 @@ void MainWindow::on_actionAdjust_triggered() {
     int width = image->width();
     int max_height = ui->graphicsView->height();
     int max_width = ui->graphicsView->width();
-    int size,max_size,fact=0;
-    double val = 0, val1 = 0;
+    int size,max_size;
+    double val1 = 0;
     double v1 = max_height * 1.0 / (height * 1.0);
     double v2 = max_width * 1.0 / (width * 1.0);
 
@@ -310,7 +310,6 @@ void MainWindow::on_actionComputeMoments_triggered(){
     QFile file("moments.txt");
     if ( file.open(QIODevice::ReadWrite) )
     {
-        std::clog << "file opened\n";
         QTextStream stream( &file );
         for (int i = 1; i < 8; i ++)
             stream << a[i] << endl;
