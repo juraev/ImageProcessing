@@ -179,7 +179,7 @@ public:
     }
 
     unsigned short getPix(int x, int y){
-        return alr * img(x, y) + alg * img(x, y) + alb * img(x, y);
+        return alr * img(x, y, 0, 1) + alg * img(x, y, 0, 1) + alb * img(x, y, 0, 1);
     }
 };
 
